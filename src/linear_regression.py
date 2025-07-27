@@ -167,24 +167,3 @@ class LinearRegression:
             RuntimeWarning
         )
         return True
-
-"""
-# Seed for reproducibility
-np.random.seed(42)
-
-# Generate 100 samples with 2 features
-X = np.random.rand(100, 2)
-
-# True weights: w = [3, 5], bias = 7
-true_w = np.array([3, 5])
-true_b = 7
-
-# Generate Y with a bit of noise
-Y = X @ true_w + true_b + np.random.randn(100) * 0.1  # small noise
-
-model = LinearRegression()
-model.gradient_descent_fit(X, Y, alpha_0=0.1, decay_rate = 0.01, epochs=500, batch_size=25, verbose=True)
-
-print("Estimated coefficients:", model.coefficients)
-print("Estimated bias:", model.bias)
-"""

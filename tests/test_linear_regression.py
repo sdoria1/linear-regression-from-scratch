@@ -40,7 +40,7 @@ def test_validate_inputs():
     except ValueError as e:
         print(f"✅ Caught mismatch error: {e}")
 
-    # ⚠️ Large number of features should log a warning (not raise)
+    # Large number of features should log a warning (not raise)
     X_wide = np.ones((10, 1500))
     Y_wide = np.ones(10)
     with warnings.catch_warnings(record=True) as w:

@@ -123,10 +123,12 @@ def plot_loss_history(loss_history, cf_mse):
 def main():
     
     # Path to your CSV file
-    data_path = os.path.join("data", "HousingData.csv")
+    DATA_DIR = "data"
+    DATA_FILENAME = "HousingData.csv"
+    DATA_PATH = os.path.join(DATA_DIR, DATA_FILENAME)
     
     # Load and prepare data
-    X, Y = load_csv_data(data_path)
+    X, Y = load_csv_data(DATA_PATH)
     # Initialize and fit model
     MSE_closed, _, _ = closed_form(X, Y)
     grad_descent(X, Y, MSE_closed)
