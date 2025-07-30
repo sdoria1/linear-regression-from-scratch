@@ -1,4 +1,5 @@
-data/
-.venv/
-.gitignore
 __pycache__/
+.venv/
+data/*
+# Allow for folder
+!data/.gitkeep
