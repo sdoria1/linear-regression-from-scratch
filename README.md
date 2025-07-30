@@ -42,7 +42,7 @@ This project provides a transparent and testable implementation of linear regres
 ---
 
 ## Repository Structure
-
+```
 ├── main.py # Entry point: loads data, trains, evaluates
 ├── data/
 │ └── Your Dataset
@@ -55,7 +55,7 @@ This project provides a transparent and testable implementation of linear regres
 │ └── test_linear_regression.py # Unit tests for model logic
 ├── requirements.txt
 └── README.md
-
+```
 ## Getting Started
 
 ### Installation
