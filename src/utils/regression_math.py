@@ -1,9 +1,9 @@
 from utils.logger import set_up_logger
 import numpy as np
-
+from typing import Tuple
 logger = set_up_logger()
 
-def calculate_coefs(X: np.ndarray, Y: np.ndarray, strict: bool):
+def calculate_coefs(X: np.ndarray, Y: np.ndarray, strict: bool) -> Tuple[float, np.ndarray]:
     """
     Computes both the bias and coefficients using QR decomposition on an
     augmented feature matrix [1 | X].
@@ -23,9 +23,8 @@ def calculate_coefs(X: np.ndarray, Y: np.ndarray, strict: bool):
     if validate_MGS(Q, R, X_aug, strict):
         logger.info("Successfully validated MGS")
     else:
+        logger.warning("Falling back to NumPy QR decomposition via Householder.")
         Q, R = np.linalg.qr(X_aug) # Fall back to Householder, usually occurs when vectors are nearly colinear
-        print(Q)
-    Qt_y = Q.T @ Y
     
     # Implementing backwards substitution to calculate w
     Qt_y = Q.T @ Y

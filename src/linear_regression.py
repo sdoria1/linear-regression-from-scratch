@@ -52,8 +52,7 @@ class LinearRegression:
         epochs: int = 1000,
         batch_size: Optional[int] = None,
         verbose: bool = False) -> None:
-        """_summary_
-
+        """
         Args:
             X (np.ndarray): The training array
             Y (np.ndarray): The target array
@@ -71,9 +70,9 @@ class LinearRegression:
         self.bias = 0.0
         for epoch in range(epochs):
             # Shuffle dataset
-            indicies = np.random.permutation(n_samples)
-            X_shuffled = X[indicies]
-            Y_shuffled = Y[indicies]
+            indices = np.random.permutation(n_samples)
+            X_shuffled = X[indices]
+            Y_shuffled = Y[indices]
             
             for start in range(0, n_samples, batch_size):
                 end = start + batch_size
@@ -87,11 +86,11 @@ class LinearRegression:
                 self.coefficients -= alpha * dw
                 self.bias -= alpha * db
             loss = self.mse(Y_batch, y_pred)
+            self.loss_history.append(loss)
             if loss < self.best_loss:
                 self.best_w = self.coefficients
                 self.best_b = self.bias
                 self.best_epoch = epoch
-                self.loss_history.append(loss)
             if verbose and epoch % max(1, epochs // 10) == 0:
                 print(f"Epoch {epoch:4d} | MSE: {loss:.4f}")
         self.coefficients = self.best_w
