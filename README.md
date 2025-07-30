@@ -87,6 +87,15 @@ Closed Form Normalized MSE: 0.0333
 Gradient Descent Normalized MSE: 0.0334
 Max Prediction Difference: 0.21
 
+Closed form result:
+![alt text](<sample_docs/Closed Form Results.png>)
+
+Gradient descent result:
+![alt text](<sample_docs/Grad Descent Results.png>)
+
+Loss:
+![alt text](sample_docs/Loss.png)
+
 ## MIT License
 
 Copyright (c) [2025] [Steven Doria]
